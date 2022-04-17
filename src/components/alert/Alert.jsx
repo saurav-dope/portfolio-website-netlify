@@ -1,14 +1,22 @@
 import React from "react";
 import "./alert.css";
+import { alertPortfolioMsg } from "../../App";
 
-const Alert = () => {
+const Alert = ({ msg }) => {
   return (
-    <section className="alert show">
-      <span className="exclamation-circle"></span>
-      <span className="msg">
-        Sorry! This Feature Is Currently Not In Service
-        {console.log("hi")}
-      </span>
+    <section
+      className={
+        msg === alertPortfolioMsg ? "alert show alert1" : "alert show alert2"
+      }
+    >
+      <span
+        className={
+          msg === alertPortfolioMsg
+            ? "fas fa-exclamation-circle"
+            : "fas fa-check"
+        }
+      ></span>
+      <span className="msg">{msg}</span>
     </section>
   );
 };

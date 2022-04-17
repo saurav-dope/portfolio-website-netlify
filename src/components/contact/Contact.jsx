@@ -6,7 +6,7 @@ import { BsWhatsapp } from "react-icons/bs";
 import { useRef } from "react";
 import emailjs from "emailjs-com";
 
-const Contact = () => {
+const Contact = ({ setAlertContact }) => {
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -21,6 +21,15 @@ const Contact = () => {
 
     e.target.reset();
   };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setAlertContact(true);
+    setTimeout(() => {
+      setAlertContact(false);
+    }, 2000);
+  };
+
   return (
     <section id="contact">
       <h5>Get In Touch</h5>
@@ -68,7 +77,13 @@ const Contact = () => {
           </article>
         </div>
 
-        <form ref={form} onSubmit={sendEmail}>
+        <form
+          ref={form}
+          onSubmit={(e) => {
+            sendEmail(e);
+            handleClick(e);
+          }}
+        >
           <input
             type="text"
             name="name"
