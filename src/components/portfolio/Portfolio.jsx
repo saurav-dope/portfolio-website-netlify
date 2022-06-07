@@ -1,8 +1,8 @@
 import React from 'react';
 import './portfolio.css';
-import IMG1 from '../../assets/calculator.jpg';
-import IMG2 from '../../assets/todolist.jpg';
-import IMG3 from '../../assets/simple_static.jpg';
+import IMG1 from '../../assets/laundry-service.jpg';
+import IMG2 from '../../assets/instaclone.jpg';
+import IMG3 from '../../assets/calculator.jpg';
 
 // Array of Portfolio Images
 
@@ -10,36 +10,34 @@ const data = [
   {
     id: 1,
     image: IMG1,
-    title: 'Calculator App',
-    github: 'https://github.com/saurav-dope/Calculator',
-    demo: 'Specify Live link For Project Here',
+    title: 'Laundry Service App',
+    github: 'https://github.com/saurav-dope/laundry-service',
+    demo: 'https://laundry-service.pages.dev/',
   },
   {
     id: 2,
     image: IMG2,
-    title: 'Todo List App',
-    github:
-      'https://github.com/saurav-dope/My-First-HTML-Assignment/tree/Assignment-6/src/Assignment-6',
-    demo: 'Specify Live link For Project Here',
+    title: 'Instaclone',
+    github: 'https://github.com/saurav-dope/Instaclone',
+    demo: 'https://instaclone.pages.dev/',
   },
   {
     id: 3,
     image: IMG3,
-    title: 'Simple Static Website',
-    github:
-      'https://github.com/saurav-dope/My-First-HTML-Assignment/tree/Assignment-4/src/Assignment-4',
-    demo: 'Specify Live link For Project Here',
+    title: 'Calculator App',
+    github: 'https://github.com/saurav-dope/Calculator',
+    demo: 'https://saurav-dope.github.io/Calculator/',
   },
 ];
 
 const Portfolio = ({ setAlert }) => {
-  const handleClick = (e) => {
-    e.preventDefault();
-    setAlert(true);
-    setTimeout(() => {
-      setAlert(false);
-    }, 2000);
-  };
+  // const handleClick = (e) => {
+  //   e.preventDefault();
+  //   setAlert(true);
+  //   setTimeout(() => {
+  //     setAlert(false);
+  //   }, 2000);
+  // };
 
   return (
     <section id='portfolio'>
@@ -55,15 +53,20 @@ const Portfolio = ({ setAlert }) => {
               </div>
               <h3>{title}</h3>
               <div className='portfolio__item-cta'>
-                <a href={github} className='btn'>
+                <a
+                  href={github}
+                  className='btn'
+                  target='_blank'
+                  rel='noreferrer'
+                >
                   Github
                 </a>
                 <a
-                  href='/'
+                  href={demo}
                   className='btn btn-primary'
                   target='_blank'
                   rel='noreferrer'
-                  onClick={handleClick}
+                  // onClick={handleClick}
                 >
                   Live Demo
                 </a>
